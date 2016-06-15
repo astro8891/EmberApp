@@ -1,0 +1,1 @@
+/home/ashley/Dev/NewEmberApp/EmberApp/library-app/tmp/broccoli_merge_trees-input_base_path-JkXXutCT.tmp/2/library-app/tests/helpers/start-app.jshint.js
