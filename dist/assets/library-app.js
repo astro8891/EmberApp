@@ -34,7 +34,21 @@ define('library-app/components/app-version', ['exports', 'ember-cli-app-version/
 });
 define('library-app/controllers/index', ['exports', 'ember'], function (exports, _ember) {
     exports['default'] = _ember['default'].Controller.extend({
-        isDisabled: true
+
+        isDisabled: true,
+
+        emailAddress: '',
+
+        actualEmailAddress: _ember['default'].computed('emailAddress', function () {
+
+            console.log('actualEmailAddress function is called: ', this.get('emailAddress'));
+        }),
+
+        emailAddressChanged: _ember['default'].observer('emailAddress', function () {
+
+            console.log('observer is called', this.get('emailAddress'));
+        })
+
     });
 });
 define('library-app/helpers/pluralize', ['exports', 'ember-inflector/lib/helpers/pluralize'], function (exports, _emberInflectorLibHelpersPluralize) {
@@ -383,7 +397,7 @@ define("library-app/templates/index", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 22,
+            "line": 25,
             "column": 6
           }
         },
@@ -429,22 +443,22 @@ define("library-app/templates/index", ["exports"], function (exports) {
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "class", "col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2");
-        var el4 = dom.createTextNode("\n          ");
+        var el4 = dom.createTextNode("\n");
         dom.appendChild(el3, el4);
-        var el4 = dom.createElement("input");
-        dom.setAttribute(el4, "type", "email");
-        dom.setAttribute(el4, "class", "form-control");
-        dom.setAttribute(el4, "placeholder", "Please type your e-mail address.");
-        dom.setAttribute(el4, "autofocus", "autofocus");
+        var el4 = dom.createTextNode("          \n          ");
         dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n        ");
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n          }\n        ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "class", "col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3");
-        var el4 = dom.createTextNode("\n        	// added isdisabled property to this lines\n            ");
+        var el4 = dom.createTextNode("\n");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("            ");
         dom.appendChild(el3, el4);
         var el4 = dom.createElement("button");
         dom.setAttribute(el4, "class", "btn btn-primary btn-lg btn-block");
@@ -469,12 +483,14 @@ define("library-app/templates/index", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [2, 8, 3, 1]);
-        var morphs = new Array(1);
-        morphs[0] = dom.createAttrMorph(element0, 'disabled');
+        var element0 = dom.childAt(fragment, [2, 8]);
+        var element1 = dom.childAt(element0, [3, 2]);
+        var morphs = new Array(2);
+        morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 2, 2);
+        morphs[1] = dom.createAttrMorph(element1, 'disabled');
         return morphs;
       },
-      statements: [["attribute", "disabled", ["get", "isDisabled", ["loc", [null, [16, 72], [16, 82]]]]]],
+      statements: [["inline", "input", [], ["type", "email", "value", ["subexpr", "@mut", [["get", "emailAddress", ["loc", [null, [14, 37], [14, 49]]]]], [], []], "class", "form-control", "placeholder", "Please type your e-mail address.", "autofocus", "autofocus"], ["loc", [null, [14, 10], [14, 141]]]], ["attribute", "disabled", ["get", "isDisabled", ["loc", [null, [19, 72], [19, 82]]]]]],
       locals: [],
       templates: []
     };
@@ -796,7 +812,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("library-app/app")["default"].create({"LOG_RESOLVER":true,"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"library-app","version":"0.0.0+567353dc"});
+  require("library-app/app")["default"].create({"LOG_RESOLVER":true,"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"library-app","version":"0.0.0+18894a2f"});
 }
 
 /* jshint ignore:end */
