@@ -35,6 +35,7 @@ define('library-app/components/app-version', ['exports', 'ember-cli-app-version/
 define('library-app/controllers/index', ['exports', 'ember'], function (exports, _ember) {
     exports['default'] = _ember['default'].Controller.extend({
 
+<<<<<<< HEAD
         emailAddress: '',
 
         isValid: _ember['default'].computed.match('emailAddress', /^.+@.+\..+$/),
@@ -48,6 +49,21 @@ define('library-app/controllers/index', ['exports', 'ember'], function (exports,
                 this.set('emailAddress', '');
             }
         }
+=======
+        isDisabled: true,
+
+        emailAddress: '',
+
+        actualEmailAddress: _ember['default'].computed('emailAddress', function () {
+
+            console.log('actualEmailAddress function is called: ', this.get('emailAddress'));
+        }),
+
+        emailAddressChanged: _ember['default'].observer('emailAddress', function () {
+
+            console.log('observer is called', this.get('emailAddress'));
+        })
+>>>>>>> 6697ceabf3c4c5d923c2090e5545bc46ddda241d
 
     });
 
@@ -399,7 +415,11 @@ define("library-app/templates/index", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
+<<<<<<< HEAD
             "line": 21,
+=======
+            "line": 25,
+>>>>>>> 6697ceabf3c4c5d923c2090e5545bc46ddda241d
             "column": 6
           }
         },
@@ -445,18 +465,30 @@ define("library-app/templates/index", ["exports"], function (exports) {
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "class", "col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2");
-        var el4 = dom.createTextNode("\n          ");
+        var el4 = dom.createTextNode("\n");
+        dom.appendChild(el3, el4);
+<<<<<<< HEAD
+        var el4 = dom.createComment("");
+=======
+        var el4 = dom.createTextNode("          \n          ");
+>>>>>>> 6697ceabf3c4c5d923c2090e5545bc46ddda241d
         dom.appendChild(el3, el4);
         var el4 = dom.createComment("");
         dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("\n        ");
+        var el4 = dom.createTextNode("\n          }\n        ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("div");
         dom.setAttribute(el3, "class", "col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3");
+<<<<<<< HEAD
         var el4 = dom.createTextNode("        	\n            ");
+=======
+        var el4 = dom.createTextNode("\n");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("            ");
+>>>>>>> 6697ceabf3c4c5d923c2090e5545bc46ddda241d
         dom.appendChild(el3, el4);
         var el4 = dom.createElement("button");
         dom.setAttribute(el4, "class", "btn btn-primary btn-lg btn-block");
@@ -482,6 +514,7 @@ define("library-app/templates/index", ["exports"], function (exports) {
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element0 = dom.childAt(fragment, [2, 8]);
+<<<<<<< HEAD
         var element1 = dom.childAt(element0, [3, 1]);
         var morphs = new Array(3);
         morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 1, 1);
@@ -490,6 +523,15 @@ define("library-app/templates/index", ["exports"], function (exports) {
         return morphs;
       },
       statements: [["inline", "input", [], ["type", "email", "value", ["subexpr", "@mut", [["get", "emailAddress", ["loc", [null, [12, 37], [12, 49]]]]], [], []], "class", "form-control", "placeholder", "Please type your e-mail address.", "autofocus", "autofocus"], ["loc", [null, [12, 10], [12, 141]]]], ["attribute", "disabled", ["get", "isDisabled", ["loc", [null, [15, 72], [15, 82]]]]], ["element", "action", ["saveInvitation"], [], ["loc", [null, [15, 85], [15, 112]]]]],
+=======
+        var element1 = dom.childAt(element0, [3, 2]);
+        var morphs = new Array(2);
+        morphs[0] = dom.createMorphAt(dom.childAt(element0, [1]), 2, 2);
+        morphs[1] = dom.createAttrMorph(element1, 'disabled');
+        return morphs;
+      },
+      statements: [["inline", "input", [], ["type", "email", "value", ["subexpr", "@mut", [["get", "emailAddress", ["loc", [null, [14, 37], [14, 49]]]]], [], []], "class", "form-control", "placeholder", "Please type your e-mail address.", "autofocus", "autofocus"], ["loc", [null, [14, 10], [14, 141]]]], ["attribute", "disabled", ["get", "isDisabled", ["loc", [null, [19, 72], [19, 82]]]]]],
+>>>>>>> 6697ceabf3c4c5d923c2090e5545bc46ddda241d
       locals: [],
       templates: []
     };

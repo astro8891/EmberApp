@@ -17,7 +17,6 @@ export default Ember.Controller.extend({
             this.set('emailAddress', '');
         }
     }
-
 });
 
 //Observers will always be called when the value of the emailAddress changes, while the computed property only changes when you go and use that property
