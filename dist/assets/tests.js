@@ -13,7 +13,7 @@ define('library-app/tests/controllers/index.jshint', ['exports'], function (expo
   QUnit.module('JSHint | controllers/index.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/index.js should pass jshint.\ncontrollers/index.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/index.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n2 errors');
+    assert.ok(false, 'controllers/index.js should pass jshint.\ncontrollers/index.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/index.js: line 3, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/index.js: line 13, col 19, \'template literal syntax\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/index.js: line 14, col 41, \'template literal syntax\' is only available in ES6 (use \'esversion: 6\').\ncontrollers/index.js: line 12, col 9, \'concise methods\' is available in ES6 (use \'esversion: 6\') or Mozilla JS extensions (use moz).\n\n5 errors');
   });
 });
 define('library-app/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
